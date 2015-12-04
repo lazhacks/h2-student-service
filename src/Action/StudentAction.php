@@ -1,15 +1,15 @@
 <?php
 
-namespace Teacher\Action;
+namespace Student\Action;
 
 use Common\Http\RestfulActionTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Teacher\Service\TeacherService;
+use Student\Service\StudentService;
 use Zend\Diactoros\Response\JsonResponse;
 use Zend\Expressive\Router\RouterInterface;
 
-class TeacherAction
+class StudentAction
 {
     use RestfulActionTrait;
 
@@ -19,20 +19,20 @@ class TeacherAction
     private $router;
 
     /**
-     * @var TeacherService
+     * @var StudentService
      */
-    private $teacherService;
+    private $studentService;
 
     /**
      * @param RouterInterface $router
-     * @param TeacherService $teacherService
+     * @param StudentService $studentService
      */
     public function __construct(
         RouterInterface $router,
-        TeacherService $teacherService
+        StudentService $studentService
     ) {
         $this->router         = $router;
-        $this->teacherService = $teacherService;
+        $this->studentService = $studentService;
     }
 
     /**
@@ -46,18 +46,18 @@ class TeacherAction
         ResponseInterface $response,
         callable $next = null
     ) {
-        $teacher = $this->teacherService->findById(
+        $student = $this->studentService->findById(
             $request->getAttribute($this->identifier)
         );
 
-        if (!$teacher->isValid()) {
+        if (!$student->isValid()) {
             return $response->withStatus(404, 'Not Found');
         }
 
         return new JsonResponse([
-            'id'         => $teacher->getId(),
-            'first_name' => $teacher->getFirstName(),
-            'last_name'  => $teacher->getLastName()
+            'id'         => $student->getId(),
+            'first_name' => $student->getFirstName(),
+            'last_name'  => $student->getLastName()
         ]);
     }
 }

@@ -3,8 +3,8 @@
 return [
     'dependencies' => [
         'factories' => [
-            Teacher\Action\TeacherAction::class => Teacher\Factory\TeacherActionFactory::class,
-            Teacher\Service\TeacherService::class => Teacher\Factory\TeacherServiceFactory::class,
+            Student\Action\StudentAction::class => Student\Factory\StudentActionFactory::class,
+            Student\Service\StudentService::class => Student\Factory\StudentServiceFactory::class,
 
             Zend\Expressive\Application::class => Zend\Expressive\Container\ApplicationFactory::class,
         ],

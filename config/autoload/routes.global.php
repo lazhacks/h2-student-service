@@ -9,9 +9,9 @@ return [
 
     'routes' => [
         [
-            'name' => 'api.teacher',
-            'path' => '/api/teacher[/:id]',
-            'middleware' => Teacher\Action\TeacherAction::class,
+            'name' => 'api.student',
+            'path' => '/api/student[/:id]',
+            'middleware' => Student\Action\StudentAction::class,
             'allowed_methods' => ['GET'],
         ],
     ],

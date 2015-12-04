@@ -1,31 +1,31 @@
 <?php
 
-namespace Teacher\Factory;
+namespace Student\Factory;
 
 use Common\Db\Mapper\Mapper;
-use Teacher\Entity\TeacherEntity;
-use Teacher\Service\TeacherService;
+use Student\Entity\StudentEntity;
+use Student\Service\StudentService;
 use Interop\Container\ContainerInterface;
 
-class TeacherServiceFactory
+class StudentServiceFactory
 {
     /**
      * @param ContainerInterface $container
-     * @return TeacherService
+     * @return StudentService
      */
     public function __invoke(ContainerInterface $container)
     {
         $adapter             = $container->get('DbAdapter');
-        $entityPrototype     = new TeacherEntity();
+        $entityPrototype     = new StudentEntity();
 
         $mapper = new Mapper(
             $adapter,
             $entityPrototype
         );
 
-        $mapper->setEntityTable('teacher');
+        $mapper->setEntityTable('student');
 
-        return new TeacherService(
+        return new StudentService(
             $mapper,
             $entityPrototype
         );

@@ -1,19 +1,19 @@
 <?php
 
-namespace Teacher\Entity;
+namespace Student\Entity;
 
 use Common\Entity\EntityInterface;
 
-class TeacherEntity implements EntityInterface
+class StudentEntity implements EntityInterface
 {
     /** @var int */
     private $id;
 
-    /** @var int  */
+    /** @var int */
     private $classroomId;
 
-    /** @var string */
-    private $username;
+    /** @var int */
+    private $userIcon;
 
     /** @var string */
     private $firstName;
@@ -25,19 +25,16 @@ class TeacherEntity implements EntityInterface
     private $email;
 
     /** @var string */
-    private $country;
+    private $password;
 
     /** @var string */
-    private $state;
-
-    /** @var string */
-    private $organizationName;
-
-    /** @var string */
-    private $grade;
+    private $earnedStarts;
 
     /** @var string */
     private $lastModified;
+
+    /** @var string */
+    private $addedAt;
 
     /**
      * @return bool
@@ -80,19 +77,19 @@ class TeacherEntity implements EntityInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getUsername()
+    public function getUserIcon()
     {
-        return $this->username;
+        return $this->userIcon;
     }
 
     /**
-     * @param string $username
+     * @param int $userIcon
      */
-    public function setUsername($username)
+    public function setUserIcon($userIcon)
     {
-        $this->username = $username;
+        $this->userIcon = $userIcon;
     }
 
     /**
@@ -146,65 +143,33 @@ class TeacherEntity implements EntityInterface
     /**
      * @return string
      */
-    public function getCountry()
+    public function getPassword()
     {
-        return $this->country;
+        return $this->password;
     }
 
     /**
-     * @param string $country
+     * @param string $password
      */
-    public function setCountry($country)
+    public function setPassword($password)
     {
-        $this->country = $country;
-    }
-
-    /**
-     * @return string
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param string $state
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
+        $this->password = $password;
     }
 
     /**
      * @return string
      */
-    public function getOrganizationName()
+    public function getEarnedStarts()
     {
-        return $this->organizationName;
+        return $this->earnedStarts;
     }
 
     /**
-     * @param string $organizationName
+     * @param string $earnedStarts
      */
-    public function setOrganizationName($organizationName)
+    public function setEarnedStarts($earnedStarts)
     {
-        $this->organizationName = $organizationName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGrade()
-    {
-        return $this->grade;
-    }
-
-    /**
-     * @param string $grade
-     */
-    public function setGrade($grade)
-    {
-        $this->grade = $grade;
+        $this->earnedStarts = $earnedStarts;
     }
 
     /**
@@ -221,5 +186,21 @@ class TeacherEntity implements EntityInterface
     public function setLastModified($lastModified)
     {
         $this->lastModified = $lastModified;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
+
+    /**
+     * @param string $addedAt
+     */
+    public function setAddedAt($addedAt)
+    {
+        $this->addedAt = $addedAt;
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Teacher\Service;
+namespace Student\Service;
 
 use Common\Db\Traits\FindByIdTrait;
 use Common\Service\AbstractService;
 use Common\Service\ServiceInterface;
 
-class TeacherService extends AbstractService implements
+class StudentService extends AbstractService implements
     ServiceInterface
 {
     use FindByIdTrait;
