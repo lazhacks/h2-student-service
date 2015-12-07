@@ -10,7 +10,8 @@ return [
         ],
         'abstract_factories' => [
             Zend\Db\Adapter\AdapterAbstractServiceFactory::class,
-            Zend\Cache\Service\StorageCacheAbstractServiceFactory::class
+            Zend\Cache\Service\StorageCacheAbstractServiceFactory::class,
+            Common\WebService\AbstractWebServiceFactory::class
         ],
 
         'initializers' => [

@@ -17,7 +17,12 @@ class StudentActionFactory
     {
         $router         = $container->get(RouterInterface::class);
         $studentService = $container->get(StudentService::class);
+        $classroom      = $container->get('ClassroomWebService');
 
-        return new StudentAction($router, $studentService);
+        return new StudentAction(
+            $router,
+            $studentService,
+            $classroom
+        );
     }
 }

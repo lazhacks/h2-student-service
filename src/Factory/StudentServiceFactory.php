@@ -2,6 +2,7 @@
 
 namespace Student\Factory;
 
+use Common\Collection\Collection;
 use Common\Db\Mapper\Mapper;
 use Student\Entity\StudentEntity;
 use Student\Service\StudentService;
@@ -17,10 +18,13 @@ class StudentServiceFactory
     {
         $adapter             = $container->get('DbAdapter');
         $entityPrototype     = new StudentEntity();
+        $collectionPrototype = new Collection();
 
         $mapper = new Mapper(
             $adapter,
-            $entityPrototype
+            $entityPrototype,
+            null,
+            $collectionPrototype
         );
 
         $mapper->setEntityTable('student');
