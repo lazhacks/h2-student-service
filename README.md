@@ -1,1 +1,1 @@
-# h2-teacher-service
+# h2-student-service
