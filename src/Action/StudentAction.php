@@ -7,7 +7,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Student\Service\StudentService;
 use Zend\Diactoros\Response\JsonResponse;
-use Zend\Diactoros\Server;
 use Zend\Expressive\Router\RouterInterface;
 use Common\WebService\WebService;
 use GuzzleHttp\Client;
@@ -60,6 +59,7 @@ class StudentAction
         ResponseInterface $response,
         callable $next = null
     ) {
+        /** @var StudentEntity $student */
         $student = $this->studentService->findById(
             $request->getAttribute($this->identifier)
         );
@@ -69,9 +69,14 @@ class StudentAction
         }
 
         return new JsonResponse([
-            'id'         => $student->getId(),
-            'first_name' => $student->getFirstName(),
-            'last_name'  => $student->getLastName()
+            'id'            => $student->getId(),
+            'first_name'    => $student->getFirstName(),
+            'last_name'     => $student->getLastName(),
+            'email'         => $student->getEmail(),
+            'earned_stars'  => $student->getEarnedStarts(),
+            'icon'          => $student->getUserIcon(),
+            'added_at'      => $student->getAddedAt(),
+            'last_modified' => $student->getLastModified()
         ]);
     }
 
